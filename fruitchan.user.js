@@ -58,13 +58,16 @@
     function changeCallback(mutationList, observer) {
         fixupLinks();
     }
-    const thread = document.querySelector(".thread");
-    const board = document.querySelector(".board");
-    const body = document.querySelector("body");
+
     const obsConfig = { childList: true };
     const observer = new MutationObserver(changeCallback);
-    observer.observe(thread, obsConfig);
-    observer.observe(board, obsConfig); // browsing All
-    observer.observe(body, obsConfig); // hover preview
-    fixupLinks();
+    window.addEventListener('load', function() {
+        const thread = document.querySelector(".thread");
+        const board = document.querySelector(".board");
+        const body = document.querySelector("body");
+        if(thread) { observer.observe(thread, obsConfig); }
+        if(board) { observer.observe(board, obsConfig); } // browsing All
+        observer.observe(body, obsConfig); // hover preview
+        fixupLinks();
+    }, false);
 })();
