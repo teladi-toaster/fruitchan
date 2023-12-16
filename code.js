@@ -4,7 +4,7 @@
 // @version      2023-12-15
 // @description  assigns randomly chosen (but deterministic) emoji to replies, to make it easier to remember comment IDs apart
 // @author       (You)
-// @source       https://github.com/teladi-toaster/fruitchan
+// @source       https://github.com/teladi-toaster/fruitchan.git
 // @match        https://boards.4channel.org/*
 // @match        https://boards.4chan.org/*
 // @icon         https://uxwing.com/wp-content/themes/uxwing/download/fruits-vegetables/fruit-icon.png
@@ -59,9 +59,11 @@
     }
     const thread = document.querySelector(".thread");
     const board = document.querySelector(".board");
+    const body = document.querySelector("body");
     const obsConfig = { childList: true };
     const observer = new MutationObserver(changeCallback);
     observer.observe(thread, obsConfig);
-    observer.observe(board, obsConfig);
+    observer.observe(board, obsConfig); // browsing All
+    observer.observe(body, obsConfig); // hover preview
     fixupLinks();
 })();
