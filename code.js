@@ -2,6 +2,7 @@
 // @name         fruitchan
 // @namespace    http://github.com/teladi-toaster
 // @version      2023-12-15
+// @license      MIT
 // @description  assigns randomly chosen (but deterministic) emoji to replies, to make it easier to remember comment IDs apart
 // @author       (You)
 // @source       https://github.com/teladi-toaster/fruitchan.git
