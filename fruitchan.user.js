@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         fruitchan
 // @namespace    http://github.com/teladi-toaster
-// @version      2023-12-15
+// @version      2023-12-16
 // @license      MIT
 // @description  assigns randomly chosen (but deterministic) emoji to replies, to make it easier to remember comment IDs apart
 // @author       (You)
@@ -54,6 +54,9 @@
         numbers.forEach(fixupNumber);
         var links = document.querySelectorAll(`.quotelink:not([${AMENDED_ATTR}])`);
         links.forEach(fixupLink);
+        // 4chanx/onee-chan
+        var backlinks = document.querySelectorAll(`a.backlink:not([${AMENDED_ATTR}])`);
+        backlinks.forEach(fixupLink);
     }
     function changeCallback(mutationList, observer) {
         fixupLinks();
